@@ -1,0 +1,21 @@
+### GET request with a header
+GET {{host}}/{{api}}/members/1
+Accept: application/json
+
+###
+GET {{host}}/{{api}}/members
+Accept: application/json
+
+### memeber 생성
+POST {{host}}/{{api}}/members
+Content-Type: application/json;charset=UTF-8
+
+{
+  "firstName": "yun",
+  "lastName": "kim",
+  "email": "asd@asd.com"
+}
+
+
+
+
