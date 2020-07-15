@@ -1,1 +1,14 @@
+spring:
+    artemis:
+        mode: embedded
+    jpa:
+        show-sql: true
+        open-in-view: false
 
+
+logging:
+    level:
+        root: info
+        org:
+            hibernate:
+                type: trace

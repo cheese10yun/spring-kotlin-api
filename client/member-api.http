@@ -1,5 +1,5 @@
 ### GET request with a header
-GET {{host}}/{{api}}/members/1
+GET {{host}}/{{api}}/members/100
 Accept: application/json
 
 ###
