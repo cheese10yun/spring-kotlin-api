@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.data.web.PageableDefault
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
+import javax.validation.constraints.Email
 
 @RestController
 @RequestMapping("/api/members")
@@ -36,7 +38,7 @@ class MemberApi(
 
     @PostMapping
     fun createMember(
-        @RequestBody request: MemberCreatRequest
+        @RequestBody @Valid request: MemberCreatRequest
     ) {
         val member = Member(
             firstName = request.firstName,
@@ -51,6 +53,7 @@ class MemberApi(
 data class MemberCreatRequest(
     val firstName: String,
     val lastName: String,
+    @field:Email
     val email: String
 )
 
