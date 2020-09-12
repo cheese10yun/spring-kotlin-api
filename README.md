@@ -7,6 +7,10 @@
 * [ ] Domain Test Support
 * [ ] Restdocs
 
+## 인텔리제이 플러그인
+* [ ] Grep
+* [ ] Rainbow
+* [ ] GitToolbox
 
 
 ## 인텔리제이 활용
