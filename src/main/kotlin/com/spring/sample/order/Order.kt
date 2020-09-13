@@ -1,4 +1,4 @@
-package com.spring.sample.order.order
+package com.spring.sample.order
 
 import com.spring.sample.AuditingEntity
 import com.spring.sample.book.Book

@@ -1,4 +1,4 @@
-package com.spring.sample.order.order
+package com.spring.sample.order
 
 import org.springframework.stereotype.Service
 

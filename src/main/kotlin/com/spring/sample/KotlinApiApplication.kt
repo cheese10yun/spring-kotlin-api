@@ -2,9 +2,9 @@ package com.spring.sample
 
 import com.spring.sample.book.Book
 import com.spring.sample.book.BookRepository
-import com.spring.sample.order.order.Order
-import com.spring.sample.order.order.OrderRepository
-import com.spring.sample.order.order.Orderer
+import com.spring.sample.order.Order
+import com.spring.sample.order.OrderRepository
+import com.spring.sample.order.Orderer
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
