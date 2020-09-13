@@ -33,6 +33,7 @@
 6. API 개발
     * Rest API 개발 -> Repository
     * Rest API Test -> Web MVC DSL
+    * Rest API Response DTO
     * Rest API Document -> Swagger, RestDoc
     * Rest API Client -> HTTP Client
     * ???

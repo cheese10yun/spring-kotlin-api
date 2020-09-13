@@ -1,17 +1,29 @@
-### GET request with a header
-GET {{host}}/{{api}}/orders?page=0&size=10
+# 주문 페이징 조회
+GET {{host}}/{{api}}/orders?page=0&size=2
 Accept: application/json
 
 ###
-GET {{host}}/{{api}}/members
+
+# 주문 단일 조회
+GET {{host}}/{{api}}/orders/1
 Accept: application/json
 
-### memeber 생성
-POST {{host}}/{{api}}/members
+###
+
+# 주문 등록
+POST {{host}}/{{api}}/orders
 Content-Type: application/json;charset=UTF-8
 
 {
-  "firstName": "yun",
-  "lastName": "kim",
-  "email": "jeong...d@lotte.net"
+  "orderer": {
+    "email": "string@asd.com",
+    "name": "string"
+  },
+  "booksIds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
 }

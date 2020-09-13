@@ -17,17 +17,15 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "orders")
-class Order(
+class Order() : AuditingEntity() {
+
     @Embedded
     @AttributeOverrides(
         AttributeOverride(name = "name", column = Column(name = "name", nullable = false)),
         AttributeOverride(name = "email", column = Column(name = "email", nullable = false))
     )
-    var orderer: Orderer,
+    lateinit var orderer: Orderer
 
-    books: List<Book>
-
-) : AuditingEntity() {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
@@ -40,14 +38,16 @@ class Order(
     @Column(name = "price", nullable = false)
     lateinit var price: BigDecimal
 
-    init {
+    constructor(orderer: Orderer, books: List<Book>) : this() {
         var totalBookPrice = BigDecimal.ZERO
+
+
         for (book in books) {
-            orderBooks.add(OrderBook(book.id!!, book.title, book.price))
             totalBookPrice += book.price
+            this.orderBooks.add(OrderBook(book.id!!, book.title, book.price))
         }
 
+        this.orderer = orderer
         this.price = totalBookPrice
     }
-
 }

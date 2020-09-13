@@ -16,4 +16,6 @@ class BookFindService(
 
     fun findPageable(pageable: Pageable) = bookRepository.findAll(pageable)
 
+    fun findByIds(ids: List<Long>) = bookRepository.findByIdIn(ids)
+
 }
