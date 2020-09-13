@@ -23,7 +23,6 @@ class OrderApi(
     @GetMapping("/{orderId}")
     fun getOrder(@PathVariable orderId: Long) = orderFindService.findById(orderId)
 
-
     @PostMapping
     fun order(@RequestBody dto: OrderRequest) {
         orderService.order(dto)
@@ -34,4 +33,3 @@ class OrderRequest(
     val orderer: Orderer,
     val booksIds: List<Long>
 )
-
