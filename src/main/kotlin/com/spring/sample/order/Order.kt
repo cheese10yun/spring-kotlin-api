@@ -26,7 +26,6 @@ class Order() : AuditingEntity() {
     )
     lateinit var orderer: Orderer
 
-
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
         name = "order_book",
@@ -40,7 +39,6 @@ class Order() : AuditingEntity() {
 
     constructor(orderer: Orderer, books: List<Book>) : this() {
         var totalBookPrice = BigDecimal.ZERO
-
 
         for (book in books) {
             totalBookPrice += book.price

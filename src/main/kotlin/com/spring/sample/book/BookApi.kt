@@ -38,10 +38,10 @@ class BookApi(
 }
 
 data class BookRegistrationRequest(
-    var title: String,
-    var writer: String,
-    var publisher: String,
-    var price: BigDecimal
+    val title: String,
+    val writer: String,
+    val publisher: String,
+    val price: BigDecimal
 ) {
     fun toEntity() = Book(
         title = title,

@@ -89,3 +89,84 @@ internal class BookFindServiceTest(
         then(page.size).isEqualTo(5)
     }
 }
+
+@Transactional
+internal class BookFindServiceBetterTest(
+    private val bookFindService: BookFindService
+) : SpringTestSupport() {
+
+    @Test
+    internal fun `findById 존재하는 경우`() {
+        //given
+        val bookId = save(
+            buildBook(
+                title = "title",
+                writer = "writer",
+                publisher = "publisher",
+                price = BigDecimal.TEN
+            )
+        ).id!!
+
+        //when
+        val book = bookFindService.findById(bookId)
+
+        //then
+        then(book.title).isEqualTo("title")
+        then(book.writer).isEqualTo("writer")
+        then(book.publisher).isEqualTo("publisher")
+        then(book.price).isEqualByComparingTo(BigDecimal.TEN)
+    }
+
+    @Test
+    internal fun `findById가 존재하지 않은 경우`() {
+        thenThrownBy { bookFindService.findById(0L) }
+            .isInstanceOf(IllegalArgumentException::class.java)
+    }
+
+    @Test
+    internal fun `findByIds`() {
+        //given
+        val bookIds = (1..5).map {
+            save(
+                Book(
+                    title = "title",
+                    writer = "writer",
+                    publisher = "publisher",
+                    price = BigDecimal.TEN
+                )
+            )
+
+        }.map {
+            it.id!!
+        }
+
+        //when
+        val books = bookFindService.findByIds(bookIds)
+
+        //then
+        then(books).hasSize(5)
+    }
+
+    @Test
+    internal fun `findPageable`() {
+        //given
+        (1..5).map {
+            Book(
+                title = "title",
+                writer = "writer",
+                publisher = "publisher",
+                price = BigDecimal.TEN
+            )
+        }.also {
+            saveAll(it)
+        }
+
+        val pageRequest = PageRequest.of(0, 5)
+
+        //when
+        val page = bookFindService.findPageable(pageRequest)
+
+        //then
+        then(page.size).isEqualTo(5)
+    }
+}
