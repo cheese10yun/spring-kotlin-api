@@ -1,12 +1,14 @@
 package com.spring.sample.order.order
 
 import com.spring.sample.AuditingEntity
-import com.spring.sample.order.book.OrderBook
 import org.hibernate.annotations.BatchSize
 import java.math.BigDecimal
+import javax.persistence.AttributeOverride
+import javax.persistence.AttributeOverrides
 import javax.persistence.CollectionTable
 import javax.persistence.Column
 import javax.persistence.ElementCollection
+import javax.persistence.Embedded
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn
@@ -25,6 +27,13 @@ class Order(
     // row = 10
     // batchSize = 2 *(?)  = 10
     var books: MutableList<OrderBook> = mutableListOf(),
+
+    @Embedded
+    @AttributeOverrides(
+        AttributeOverride(name = "name", column = Column(name = "name", nullable = false)),
+        AttributeOverride(name = "email", column = Column(name = "email", nullable = false))
+    )
+    var orderder: Orderer,
 
 
     @Column(name = "price", nullable = false)

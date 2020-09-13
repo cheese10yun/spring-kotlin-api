@@ -1,4 +1,4 @@
-package com.spring.sample.order.book
+package com.spring.sample.order.order
 
 import java.math.BigDecimal
 import javax.persistence.Column

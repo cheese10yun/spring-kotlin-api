@@ -1,6 +1,5 @@
 package com.spring.sample.order.order
 
-import com.spring.sample.order.book.OrderBook
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
