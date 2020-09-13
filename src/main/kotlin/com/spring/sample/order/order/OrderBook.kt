@@ -13,6 +13,6 @@ class OrderBook(
     @Column(name = "price", nullable = false)
     var price: BigDecimal,
 
-    @Column(name = "book_number", nullable = false, unique = true, updatable = false)
-    val bookNumber: String
+    @Column(name = "book_id", nullable = false, updatable = false)
+    var bookId: Long
 )

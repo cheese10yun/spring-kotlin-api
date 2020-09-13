@@ -20,11 +20,7 @@ class Book(
     var publisher: String,
 
     @Column(name = "price", nullable = false)
-    var price: BigDecimal,
-
-    @Column(name = "book_number", nullable = false, unique = true, updatable = false)
-    val bookNumber: String
+    var price: BigDecimal
 
 ) : AuditingEntity() {
-
 }

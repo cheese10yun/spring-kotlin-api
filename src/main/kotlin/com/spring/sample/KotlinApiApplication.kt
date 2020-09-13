@@ -24,15 +24,8 @@ class KotlinApiRunner(
 ) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments) {
-        val order = (1..10)
-            .map {
-                Order(
-                    (1..10)
-                        .map {
-                            OrderBook("title", 100.toBigDecimal(), UUID.randomUUID().toString())
-                        }.toMutableList(), Orderer("name", "asd@asd.com"), 1000.toBigDecimal())
-            }
 
-        orderRepository.saveAll(order)
+
+
     }
 }
