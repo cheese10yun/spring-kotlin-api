@@ -27,12 +27,17 @@
     4. Repository
         * open-in-view: false -> /api/orders 문제있는 이유
         * applicationRunner -> orders save
-    5. Service
-    6. Test Repository, Service  -> Slice Test, SpringBoot Test 
-    6. Repository Test -> Slice Test
+    5. Repository Test  -> Slice Test, SpringBoot Test
+    6. Service -> Book Repository Refactoring Service
+    7. Service Test
 6. API 개발
-    * Rest API 개발
+    * Rest API 개발 -> Repository
     * Rest API Test -> Web MVC DSL
     * Rest API Document -> Swagger, RestDoc
     * Rest API Client -> HTTP Client
     * ???
+    
+7. Service 개발
+    * API Repository -> Service 분리
+    * Service Test Code
+    

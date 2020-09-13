@@ -1,6 +1,7 @@
 package com.spring.sample.order.order
 
 import com.spring.sample.AuditingEntity
+import com.spring.sample.book.Book
 import org.hibernate.annotations.BatchSize
 import java.math.BigDecimal
 import javax.persistence.AttributeOverride
@@ -17,6 +18,16 @@ import javax.persistence.Table
 @Entity
 @Table(name = "orders")
 class Order(
+    @Embedded
+    @AttributeOverrides(
+        AttributeOverride(name = "name", column = Column(name = "name", nullable = false)),
+        AttributeOverride(name = "email", column = Column(name = "email", nullable = false))
+    )
+    var orderer: Orderer,
+
+    books: List<Book>
+
+) : AuditingEntity() {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
@@ -24,28 +35,19 @@ class Order(
         joinColumns = [JoinColumn(name = "orders_id", nullable = false, updatable = false)]
     )
     @BatchSize(size = 2)
-    // row = 10
-    // batchSize = 2 *(?)  = 10
-    var books: MutableList<OrderBook> = mutableListOf(),
-
-    @Embedded
-    @AttributeOverrides(
-        AttributeOverride(name = "name", column = Column(name = "name", nullable = false)),
-        AttributeOverride(name = "email", column = Column(name = "email", nullable = false))
-    )
-    var orderder: Orderer,
-
+    var orderBooks: MutableList<OrderBook> = mutableListOf()
 
     @Column(name = "price", nullable = false)
-    var price: BigDecimal
-
-) : AuditingEntity() {
-
+    lateinit var price: BigDecimal
 
     init {
-        this.price = books.stream()
-            .map { it.price }
-            .reduce { a, b -> a.add(b) }
-            .get()
+        var totalBookPrice = BigDecimal.ZERO
+        for (book in books) {
+            orderBooks.add(OrderBook(book.id!!, book.title, book.price))
+            totalBookPrice += book.price
+        }
+
+        this.price = totalBookPrice
     }
+
 }
