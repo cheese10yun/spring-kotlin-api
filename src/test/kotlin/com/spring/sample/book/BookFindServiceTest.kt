@@ -4,6 +4,7 @@ import com.spring.sample.SpringTestSupport
 import org.assertj.core.api.BDDAssertions.then
 import org.assertj.core.api.BDDAssertions.thenThrownBy
 import org.junit.jupiter.api.Test
+import org.springframework.data.domain.PageRequest
 import org.springframework.transaction.annotation.Transactional
 import java.math.BigDecimal
 
@@ -41,4 +42,50 @@ internal class BookFindServiceTest(
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
+    @Test
+    internal fun `findByIds`() {
+        //given
+        val bookIds = (1..5).map {
+            bookRepository.save(
+                Book(
+                    title = "title",
+                    writer = "writer",
+                    publisher = "publisher",
+                    price = BigDecimal.TEN
+                )
+            )
+
+        }.map {
+            it.id!!
+        }
+
+        //when
+        val books = bookFindService.findByIds(bookIds)
+
+        //then
+        then(books).hasSize(5)
+    }
+
+    @Test
+    internal fun `findPageable`() {
+        //given
+        (1..5).map {
+            Book(
+                title = "title",
+                writer = "writer",
+                publisher = "publisher",
+                price = BigDecimal.TEN
+            )
+        }.also {
+            bookRepository.saveAll(it)
+        }
+
+        val pageRequest = PageRequest.of(0, 5)
+
+        //when
+        val page = bookFindService.findPageable(pageRequest)
+
+        //then
+        then(page.size).isEqualTo(5)
+    }
 }
