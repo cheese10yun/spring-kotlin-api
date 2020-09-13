@@ -42,3 +42,4 @@
     * [ ] Commit, Push, Pull
     * [ ] Stash, UnStash
     * [ ] Branch, Branch Diff, Merge, Checkout
+

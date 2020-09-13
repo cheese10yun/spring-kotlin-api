@@ -1,5 +1,5 @@
 ### GET request with a header
-GET {{host}}/{{api}}/members/100
+GET {{host}}/{{api}}/orders?page=0&size=10
 Accept: application/json
 
 ###
@@ -15,7 +15,3 @@ Content-Type: application/json;charset=UTF-8
   "lastName": "kim",
   "email": "jeong...d@lotte.net"
 }
-
-
-
-
