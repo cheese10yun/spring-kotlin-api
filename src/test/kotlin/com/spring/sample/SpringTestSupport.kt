@@ -1,6 +1,7 @@
 package com.spring.sample
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.querydsl.jpa.impl.JPAQueryFactory
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
@@ -30,6 +31,8 @@ class SpringTestSupport {
     @Autowired
     private lateinit var entityManager: EntityManager
 
+
+    protected val query: JPAQueryFactory by lazy { JPAQueryFactory(entityManager) }
 
     protected fun <T> save(entity: T): T {
         entityManager.persist(entity)
