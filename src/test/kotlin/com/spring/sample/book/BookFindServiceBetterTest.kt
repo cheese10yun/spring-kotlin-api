@@ -1,6 +1,7 @@
 package com.spring.sample.book
 
 import com.spring.sample.SpringTestSupport
+import com.spring.sample.buildBook
 import org.assertj.core.api.BDDAssertions.then
 import org.assertj.core.api.BDDAssertions.thenThrownBy
 import org.junit.jupiter.api.Test

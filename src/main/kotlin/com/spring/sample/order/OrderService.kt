@@ -13,9 +13,9 @@ class OrderService(
 ) {
 
     @Transactional
-    fun order(dto: OrderRequest) {
+    fun order(dto: OrderRequest): Order {
         val books = bookFindService.findByIds(dto.booksIds)
-        orderRepository.save(Order(dto.orderer, books))
+        return orderRepository.save(Order(dto.orderer, books))
     }
 }
 
