@@ -9,8 +9,12 @@
 
 ## 인텔리제이 플러그인
 * [ ] Grep
-* [ ] Rainbow
+* [ ] Rainbow Brackets, Rainbow Intent
 * [ ] GitToolbox
+* [ ] Key Promoter
+* [ ] Lombok
+* [ ] Translation
+* [ ] VisualVM Launcher
 
 
 ## 인텔리제이 활용
