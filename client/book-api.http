@@ -1,0 +1,38 @@
+# 북 페이징 조회
+
+GET {{host}}/{{api}}/books?page=0&size=10
+Accept: application/json
+
+###
+
+
+# 북 단일 조회
+GET {{host}}/{{api}}/books/1
+Accept: application/json
+
+###
+
+# 북 등록
+POST {{host}}/api/books
+Content-Type: application/json
+
+{
+  "title": "title",
+  "writer": "writer",
+  "publisher": "publisher",
+  "price": 1000.0
+}
+
+###
+
+# 북 수정
+
+PUT {{host}}/api/books/1
+Content-Type: application/json
+
+{
+  "title": "title-modify",
+  "writer": "writer-modify",
+  "publisher": "publisher-modify",
+  "price": 7000.0
+}
