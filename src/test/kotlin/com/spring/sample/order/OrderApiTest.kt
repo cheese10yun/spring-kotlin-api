@@ -23,7 +23,7 @@ internal class OrderApiTest : SpringWebTestSupport() {
             saveAll(it)
         }
 
-        //when & thenwq
+        //when & then
         mockMvc.get(URI) {
             contentType = MediaType.APPLICATION_JSON
             param("page", "0")

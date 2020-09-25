@@ -1,1 +1,1 @@
-rootProject.name = "sample"
+rootProject.name = "spring-kotlin-api"
