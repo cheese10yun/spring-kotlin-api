@@ -25,21 +25,13 @@ class KotlinApiRunner(
 ) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments) {
-
         val books = (1..10).map {
             Book("title-$it", "writer-$it", "publisher-$it", price = (it * 1000).toBigDecimal())
         }
-
         bookRepository.saveAll(books)
-
-
         val orders = (1..10).map {
             Order(Orderer("name", "asd@asd.com"), books)
         }
-
         orderRepository.saveAll(orders)
-
-
-
     }
 }

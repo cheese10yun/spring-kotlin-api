@@ -4,13 +4,16 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Import
 import org.springframework.core.io.ResourceLoader
 import org.springframework.restdocs.RestDocumentationContextProvider
+import org.springframework.restdocs.RestDocumentationExtension
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler
 import org.springframework.restdocs.operation.preprocess.Preprocessors
@@ -30,7 +33,6 @@ class SpringTestSupport {
 
     @Autowired
     private lateinit var entityManager: EntityManager
-
 
     protected val query: JPAQueryFactory by lazy { JPAQueryFactory(entityManager) }
 
@@ -56,6 +58,8 @@ class SpringTestSupport {
 
 
 @AutoConfigureMockMvc
+@Import(RestDocsConfiguration::class)
+@ExtendWith(RestDocumentationExtension::class)
 class SpringWebTestSupport : SpringTestSupport() {
 
     @Autowired

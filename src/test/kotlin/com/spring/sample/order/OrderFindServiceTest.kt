@@ -42,9 +42,7 @@ internal class OrderFindServiceTest(
         }.also {
             saveAll(it)
         }
-
         val pageRequest = PageRequest.of(0, 3)
-
 
         //when
         val pageOrder = orderFindService.findPageBy(pageRequest)
