@@ -14,10 +14,15 @@ class OrderService(
 
     @Transactional
     fun order(dto: OrderRequest): Order {
-        val books = bookFindService.findByIds(dto.booksIds)
+        val books = bookFindService.findByIds(dto.bookIds)
         return orderRepository.save(Order(dto.orderer, books))
     }
 }
+
+data class OrderRequest(
+    val orderer: Orderer,
+    val bookIds: List<Long>
+)
 
 @Service
 @Transactional(readOnly = true)
