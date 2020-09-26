@@ -28,8 +28,3 @@ class OrderApi(
         orderService.order(dto)
     }
 }
-
-class OrderRequest(
-    val orderer: Orderer,
-    val booksIds: List<Long>
-)
