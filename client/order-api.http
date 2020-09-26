@@ -1,0 +1,29 @@
+# 주문 페이징 조회
+GET {{host}}/{{api}}/orders?page=0&size=2
+Accept: application/json
+
+###
+
+# 주문 단일 조회
+GET {{host}}/{{api}}/orders/1
+Accept: application/json
+
+###
+
+# 주문 등록
+POST {{host}}/{{api}}/orders
+Content-Type: application/json;charset=UTF-8
+
+{
+  "orderer": {
+    "email": "string@asd.com",
+    "name": "string"
+  },
+  "booksIds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}
