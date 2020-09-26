@@ -37,18 +37,3 @@ abstract class AuditingEntityId : Serializable {
     var id: Long? = null
         protected set
 }
-
-@EntityListeners(value = [AuditingEntityListener::class])
-@MappedSuperclass
-abstract class AuditingEntityDate {
-
-    @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
-    lateinit var createdAt: LocalDateTime
-        protected set
-
-    @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false)
-    lateinit var updatedAt: LocalDateTime
-        protected set
-}
