@@ -37,7 +37,6 @@
 * [ ] Find Action
   * [ ] Open File
   * [ ] Gradle CMD + 9
-* [ ] Http Client
 * [ ] Actuator End Point
 * [ ] 특정 Import 제외하기
 * [ ] Execute Gradle Task 사용하기
@@ -65,7 +64,7 @@
     * [ ] Commit, Push, Pull
     * [ ] Stash, UnStash
     * [ ] Branch, Branch Diff, Merge, Checkout
-* [ ] Srping
+* [ ] Spring
   * [ ] Health
   * [ ] Mappings
 
