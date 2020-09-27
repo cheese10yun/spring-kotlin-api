@@ -11,10 +11,11 @@
 
 
 # Branch
-1. `git checkout step-1`
-2. `git checkout step-2 `
-3. `git checkout step-3`
-4. `git checkout step-4`
+1. `git checkout step-0`
+2. `git checkout step-1`
+3. `git checkout step-2 `
+4. `git checkout step-3`
+5. `git checkout step-4`
 
 
 # Step-0
@@ -105,7 +106,7 @@ allOpen {
 * Order를 통해서 Book을 주문할 수 있음
 
 # Step-3
-* Repositroy, Service 개발
+* Repository, Service 개발
 * Test Code를 위한 JPA Support for test 개발
 
 # Step-4
