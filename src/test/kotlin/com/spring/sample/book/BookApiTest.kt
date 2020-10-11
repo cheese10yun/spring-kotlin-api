@@ -131,7 +131,7 @@ internal class BookApiTestBetter : SpringWebTestSupport() {
         val book = save(buildBook())
 
         //when & then
-        mockMvc.get("$URL//{bookId}", book.id!!) {
+        mockMvc.get("$URL/{bookId}", book.id!!) {
             contentType = MediaType.APPLICATION_JSON
             content =
                 """
