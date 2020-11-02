@@ -87,6 +87,5 @@ tasks.jacocoTestReport {
         xml.isEnabled = true
         csv.isEnabled = true
         html.destination = file("$buildDir/reports/jacoco")
-        xml.destination = file("$buildDir/reports/jacoco")
     }
 }
