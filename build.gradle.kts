@@ -8,6 +8,7 @@ plugins {
     kotlin("plugin.spring") version "1.3.72"
     kotlin("plugin.jpa") version "1.3.72"
     kotlin("kapt") version "1.3.72"
+    id("jacoco")
 }
 
 allOpen {
@@ -77,4 +78,14 @@ tasks.asciidoctor {
     inputs.dir(snippetsDir)
     val test by tasks
     dependsOn(test)
+}
+
+
+tasks.jacocoTestReport {
+    reports {
+        isEnabled = true
+        xml.isEnabled = true
+        csv.isEnabled = true
+        html.destination = file("$buildDir/reports/jacoco")
+    }
 }

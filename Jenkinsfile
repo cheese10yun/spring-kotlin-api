@@ -21,8 +21,19 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./gradlew test"
+                sh "./gradlew clean test jacocoTestReport"
             }
+
+            post {
+              success {
+                  script {
+                      // if we are in a PR
+                      if (env.CHANGE_ID) {
+                          publishCoverageGithub(filepath:'coverage.xml', coverageXmlType: 'jacoco', comparisonOption: [ value: 'optionFixedCoverage', fixedCoverage: '0.10' ], coverageRateType: 'Line')
+                      }
+                  }
+              }
+          }
         }
 
 //         stage('Build') {
