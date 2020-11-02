@@ -19,11 +19,17 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh "./gradlew --build-cache clean build"
+                sh "./gradlew test"
             }
         }
+
+//         stage('Build') {
+//             steps {
+//                 sh "./gradlew --build-cache clean build"
+//             }
+//         }
     }
 
      post {
