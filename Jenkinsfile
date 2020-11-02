@@ -21,7 +21,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./gradlew clean test jacocoTestReport"
+                sh "./gradlew test jacocoTestReport"
             }
 
             post {
