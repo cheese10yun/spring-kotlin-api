@@ -72,7 +72,7 @@ internal class OrderApiTest : SpringWebTestSupport() {
                     "email": "string@asd.com",
                     "name": "string"
                   },
-                  "booksIds": [${bookIds.joinToString(",")}]
+                  "bookIds": [${bookIds.joinToString(",")}]
                 }
             """.trimIndent()
         }.andExpect {
