@@ -21,7 +21,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./gradlew test jacocoTestReport"
+                sh "./gradlew clean test jacocoTestReport"
             }
 
             post {
@@ -29,7 +29,7 @@ pipeline {
                   script {
                       // if we are in a PR
                       if (env.CHANGE_ID) {
-                          publishCoverageGithub(filepath:'coverage.xml', coverageXmlType: 'jacoco', comparisonOption: [ value: 'optionFixedCoverage', fixedCoverage: '0.10' ], coverageRateType: 'Line')
+                          publishCoverageGithub(filepath:'jacocoTestReport.xml', coverageXmlType: 'jacoco', comparisonOption: [ value: 'optionFixedCoverage', fixedCoverage: '0.10' ], coverageRateType: 'Line')
                       }
                   }
               }
