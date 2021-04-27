@@ -36,3 +36,11 @@ Content-Type: application/json
   "publisher": "publisher-modify",
   "price": 7000.0
 }
+
+###
+POST http://localhost:8080/foo
+Content-Type: application/json
+
+{
+  "name": "asd"
+}
