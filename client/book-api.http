@@ -44,3 +44,12 @@ Content-Type: application/json
 {
   "name": "asd"
 }
+
+###
+POST http://localhost:8080/foo/jackson
+Content-Type: application/json
+
+{
+  "name": "tesasdasdt",
+  "age": 10
+}

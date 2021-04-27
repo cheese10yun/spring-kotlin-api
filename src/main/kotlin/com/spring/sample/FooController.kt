@@ -11,8 +11,17 @@ class FooController {
 
     @PostMapping
     fun foo(@RequestBody dto: BarRequest) = dto
+
+
+    @PostMapping("/jackson")
+    fun jackson(@RequestBody dto: SampleRequestBody) = dto
 }
 
 data class BarRequest(
     val name: String
+)
+
+data class SampleRequestBody(
+    val name: String,
+    val age: Int
 )
