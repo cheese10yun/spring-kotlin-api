@@ -1,26 +1,30 @@
 package com.spring.sample.book
 
 import com.spring.sample.AuditingEntity
-import java.math.BigDecimal
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 import javax.persistence.Table
+import org.springframework.data.jpa.repository.JpaRepository
 
 @Entity
 @Table(name = "book")
 class Book(
-
     @Column(name = "title", nullable = false)
     var title: String,
 
-    @Column(name = "writer", nullable = false)
-    var writer: String,
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Order::class)
+    @JoinColumn(name = "order_id", nullable = false)
+    var order: Order
+) : AuditingEntity()
 
-    @Column(name = "publisher", nullable = false)
-    var publisher: String,
+@Entity
+@Table(name = "orders")
+class Order(
+    @Column(name = "title", nullable = false)
+    var number: String
+) : AuditingEntity()
 
-    @Column(name = "price", nullable = false)
-    var price: BigDecimal
-
-) : AuditingEntity() {
-}
+interface OrderRepository : JpaRepository<Order, Long>

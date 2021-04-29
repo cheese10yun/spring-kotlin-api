@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-
     id("org.springframework.boot") version "2.4.5"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("org.asciidoctor.convert") version "1.5.8"
@@ -10,7 +9,7 @@ plugins {
     kotlin("jvm") version "1.4.32"
     kotlin("plugin.spring") version "1.4.32"
     kotlin("plugin.jpa") version "1.4.32"
-    kotlin("kapt") version "1.4.32"
+//    kotlin("kapt") version "1.4.32"
 }
 
 allOpen {
@@ -44,21 +43,21 @@ dependencies {
 //    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.springfox:springfox-swagger2:2.9.2")
     implementation("io.springfox:springfox-swagger-ui:2.9.2")
-    implementation("com.querydsl:querydsl-jpa")
+//    implementation("com.querydsl:querydsl-jpa")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     runtimeOnly("com.h2database:h2")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    annotationProcessor(group = "com.querydsl", name = "querydsl-apt", classifier = "jpa")
+//    annotationProcessor(group = "com.querydsl", name = "querydsl-apt", classifier = "jpa")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 
-    kapt("com.querydsl:querydsl-apt:4.2.1:jpa")
+//    kapt("com.querydsl:querydsl-apt:4.2.1:jpa")
 }
 
 tasks.withType<Test> {
