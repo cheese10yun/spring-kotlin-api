@@ -95,6 +95,13 @@ class Book(
 ```
 특정 어노테이션에 `open` 키워드를 편리하기 추가할 수 있습니다.
 
+
+### all-open은 왜 필요할까?
+
+![](https://github.com/cheese10yun/blog-sample/raw/master/query-dsl/docs/images/result-3.png)
+
+Spring Boot 2.x 버전부터는 CGLIB Proxy 방식으로 Bean을 관리하고 있습니다. CGLIB Proxy는 Target Class를 상속받아 생성하기 때문에 `open`으로 성속이 가능한 상태이어야 합니다. 그러기 때문에 `all-open` 플러그인이 필요합니다.
+
 ### no-arg
 
 `no-arg`는 argument가 없는 기본 생성자를 의미합니다. 클래스는 기본 생성자가 기본적으로 생성되며 다른 생성자를 만들면 기본 생성자는 명시적으로 선언하지 않는 이상 사라지게 됩니다.
