@@ -25,7 +25,7 @@ internal class OrderServiceTest(
 
         val dto = OrderRequest(
             orderer = buildOrderer(),
-            booksIds = bookIds
+            bookIds = bookIds
         )
 
         //when
